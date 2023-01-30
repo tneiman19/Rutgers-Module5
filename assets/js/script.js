@@ -25,27 +25,23 @@ $(function () {
   // current hour in 24-hour time?
   //
 
+
+  
   // TODO: Add code to get any user input that was saved in localStorage and set
   // the values of the corresponding textarea elements. HINT: How can the id
   // attribute of each time-block be used to do this?
   //
 
-  var testArray = [
-    "hour-9",
-    "hour-10",
-    "hour-11",
-    "hour-12",
-    "hour-1",
-    "hour-2",
-    "hour-3",
-    "hour-4",
-    "hour-5",
-  ];
+  $("div.time-block").each(function () {
+    var myId = $(this).attr("id");
+    // console.log($(this).attr("id"));
+    // console.log($(this).children().eq(1).text(myId));
+    var lsItem = localStorage.getItem(myId);
+    //console.log(lsItem);
+    $(this).children().eq(1).text(lsItem);
 
-  for (var i = 0; i < testArray.length; i++) {
-    var lsItem = localStorage.getItem(testArray[i]);
-    console.log(lsItem);
-  }
+    return $(this).attr("id");
+  });
 
   // TODO: Add code to display the current date in the header of the page.
   $("#currentDay").text(moment().format("dddd, MMMM Do, YYYY"));
