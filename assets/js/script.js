@@ -15,7 +15,7 @@ $(function () {
     var lsItem = localStorage.getItem(myId);
     //console.log(lsItem);
     $(this).children().eq(1).text(lsItem);
-    var curHour = moment().format("HH");
+    var curHour = parseInt(moment().format("HH"));
     //console.log(curHour);
     var hour = parseInt(myId.substring(5));
     //console.log(hour);
